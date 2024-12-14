@@ -31,7 +31,7 @@ interface DomainEventInterface
         set;
     }
 
-    public function domainEventCode(): string;
+    public static function domainEventCode(): string;
 
     public function domainEventVersion(): int;
 
