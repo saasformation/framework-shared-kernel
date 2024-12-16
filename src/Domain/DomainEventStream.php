@@ -3,9 +3,13 @@
 namespace SaaSFormation\Framework\SharedKernel\Domain;
 
 use SaaSFormation\Framework\SharedKernel\Domain\Messages\AbstractDomainEvent;
+use SaaSFormation\Framework\SharedKernel\Domain\Messages\DomainEventInterface;
 
 class DomainEventStream
 {
+    /**
+     * @var DomainEventInterface[]
+     */
     private array $events;
 
     public function __construct()
@@ -21,7 +25,7 @@ class DomainEventStream
     }
 
     /**
-     * @return array|AbstractDomainEvent[]
+     * @return DomainEventInterface[]
      */
     public function events(): array
     {

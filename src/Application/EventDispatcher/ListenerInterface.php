@@ -2,9 +2,9 @@
 
 namespace SaaSFormation\Framework\SharedKernel\Application\EventDispatcher;
 
-use SaaSFormation\Framework\SharedKernel\Domain\Messages\AbstractDomainEvent;
+use SaaSFormation\Framework\SharedKernel\Domain\Messages\DomainEventInterface;
 
 interface ListenerInterface
 {
-    public function listen(AbstractDomainEvent $event): void;
+    public function listen(DomainEventInterface $event): void;
 }

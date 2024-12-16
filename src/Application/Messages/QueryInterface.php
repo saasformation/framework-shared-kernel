@@ -4,5 +4,5 @@ namespace SaaSFormation\Framework\SharedKernel\Application\Messages;
 
 interface QueryInterface
 {
-    public function queryCode(): string;
+    public function getQueryCode(): string;
 }

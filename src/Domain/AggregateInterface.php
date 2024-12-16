@@ -6,13 +6,7 @@ use SaaSFormation\Framework\SharedKernel\Common\Identity\IdInterface;
 
 interface AggregateInterface
 {
-    public IdInterface $id {
-        get;
-    }
-
-    public DomainEventStream $eventStream {
-        get;
-    }
-
+    public function getId(): IdInterface;
+    public function getEventStream(): DomainEventStream;
     public function aggregateCode(): string;
 }

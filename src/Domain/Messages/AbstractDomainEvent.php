@@ -6,41 +6,59 @@ use SaaSFormation\Framework\SharedKernel\Common\Identity\IdInterface;
 
 abstract class AbstractDomainEvent implements DomainEventInterface
 {
+    private ?IdInterface $domainEventId = null;
+    private IdInterface $aggregateId;
+    private ?IdInterface $requestId = null;
+    private ?IdInterface $correlationId = null;
+    private ?IdInterface $generatorCommandId = null;
+
     public function __construct(IdInterface $aggregateId)
     {
         $this->aggregateId = $aggregateId;
     }
 
-    public ?IdInterface $domainEventId {
-        get {
-            return $this->domainEventId;
-        }
-        set {
-            $this->domainEventId = $value;
-        }
+    public function getDomainEventId(): ?IdInterface
+    {
+        return $this->domainEventId;
     }
-    public ?IdInterface $requestId {
-        get {
-            return $this->requestId;
-        }
-        set {
-            $this->requestId = $value;
-        }
+
+    public function getAggregateId(): IdInterface
+    {
+        return $this->aggregateId;
     }
-    public ?IdInterface $correlationId {
-        get {
-            return $this->correlationId;
-        }
-        set {
-            $this->correlationId = $value;
-        }
+
+    public function getRequestId(): ?IdInterface
+    {
+        return $this->requestId;
     }
-    public ?IdInterface $generatorCommandId {
-        get {
-            return $this->generatorCommandId;
-        }
-        set {
-            $this->generatorCommandId = $value;
-        }
+
+    public function getCorrelationId(): ?IdInterface
+    {
+        return $this->correlationId;
+    }
+
+    public function getGeneratorCommandId(): ?IdInterface
+    {
+        return $this->generatorCommandId;
+    }
+
+    public function setDomainEventId(IdInterface $domainEventId): void
+    {
+        $this->domainEventId = $domainEventId;
+    }
+
+    public function setRequestId(IdInterface $requestId): void
+    {
+        $this->requestId = $requestId;
+    }
+
+    public function setCorrelationId(IdInterface $correlationId): void
+    {
+        $this->correlationId = $correlationId;
+    }
+
+    public function setGeneratorCommandId(IdInterface $generatorCommandId): void
+    {
+        $this->generatorCommandId = $generatorCommandId;
     }
 }

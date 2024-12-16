@@ -6,11 +6,9 @@ use SaaSFormation\Framework\SharedKernel\Common\Identity\IdInterface;
 
 interface ReadModelInterface
 {
-    public ?IdInterface $readModelId {
-        get;
-    }
+    public function getReadModelId(): ?IdInterface;
 
-    public function setId(IdInterface $readModelId): void;
+    public function setReadModelId(IdInterface $readModelId): void;
 
     /**
      * @return array<mixed>

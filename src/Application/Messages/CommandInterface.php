@@ -6,25 +6,13 @@ use SaaSFormation\Framework\SharedKernel\Common\Identity\IdInterface;
 
 interface CommandInterface
 {
-    public ?IdInterface $commandId {
-        get;
-        set;
-    }
-
-    public ?IdInterface $requestId {
-        get;
-        set;
-    }
-
-    public ?IdInterface $correlationId {
-        get;
-        set;
-    }
-
-    public ?IdInterface $executorId {
-        get;
-        set;
-    }
-
-    public function commandCode(): string;
+    public function getCommandId(): ?IdInterface;
+    public function getRequestId(): ?IdInterface;
+    public function getCorrelationId(): ?IdInterface;
+    public function getExecutorId(): ?IdInterface;
+    public function setCommandId(IdInterface $commandId): void;
+    public function setRequestId(IdInterface $requestId): void;
+    public function setCorrelationId(IdInterface $correlationId): void;
+    public function setExecutorId(IdInterface $executorId): void;
+    public function getCommandCode(): string;
 }

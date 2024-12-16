@@ -6,36 +6,48 @@ use SaaSFormation\Framework\SharedKernel\Common\Identity\IdInterface;
 
 abstract class AbstractCommand implements CommandInterface
 {
-    public ?IdInterface $commandId {
-        get {
-            return $this->commandId;
-        }
-        set {
-            $this->commandId = $value;
-        }
+    private ?IdInterface $commandId = null;
+    private ?IdInterface $requestId = null;
+    private ?IdInterface $correlationId = null;
+    private ?IdInterface $executorId = null;
+
+    public function getCommandId(): ?IdInterface
+    {
+        return $this->commandId;
     }
-    public ?IdInterface $requestId {
-        get {
-            return $this->requestId;
-        }
-        set {
-            $this->requestId = $value;
-        }
+
+    public function getRequestId(): ?IdInterface
+    {
+        return $this->requestId;
     }
-    public ?IdInterface $correlationId {
-        get {
-            return $this->correlationId;
-        }
-        set {
-            $this->correlationId = $value;
-        }
+
+    public function getCorrelationId(): ?IdInterface
+    {
+        return $this->correlationId;
     }
-    public ?IdInterface $executorId {
-        get {
-            return $this->executorId;
-        }
-        set {
-            $this->executorId = $value;
-        }
+
+    public function getExecutorId(): ?IdInterface
+    {
+        return $this->executorId;
+    }
+
+    public function setCommandId(IdInterface $commandId): void
+    {
+        $this->commandId = $commandId;
+    }
+
+    public function setRequestId(IdInterface $requestId): void
+    {
+        $this->requestId = $requestId;
+    }
+
+    public function setCorrelationId(IdInterface $correlationId): void
+    {
+        $this->correlationId = $correlationId;
+    }
+
+    public function setExecutorId(IdInterface $executorId): void
+    {
+        $this->executorId = $executorId;
     }
 }

@@ -6,7 +6,14 @@ use SaaSFormation\Framework\SharedKernel\Common\Identity\IdInterface;
 
 abstract class AbstractReadModel implements ReadModelInterface
 {
-    public function setId(IdInterface $readModelId): void
+    private ?IdInterface $readModelId = null;
+
+    public function getReadModelId(): ?IdInterface
+    {
+        return $this->readModelId;
+    }
+
+    public function setReadModelId(IdInterface $readModelId): void
     {
         $this->readModelId = $readModelId;
     }

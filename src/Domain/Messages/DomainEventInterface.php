@@ -6,34 +6,27 @@ use SaaSFormation\Framework\SharedKernel\Common\Identity\IdInterface;
 
 interface DomainEventInterface
 {
-    public ?IdInterface $domainEventId {
-        get;
-        set;
-    }
+    public function getDomainEventId(): ?IdInterface;
 
-    public IdInterface $aggregateId {
-        get;
-        set;
-    }
+    public function getAggregateId(): IdInterface;
 
-    public ?IdInterface $requestId {
-        get;
-        set;
-    }
+    public function getRequestId(): ?IdInterface;
 
-    public ?IdInterface $correlationId {
-        get;
-        set;
-    }
+    public function getCorrelationId(): ?IdInterface;
 
-    public ?IdInterface $generatorCommandId {
-        get;
-        set;
-    }
+    public function getGeneratorCommandId(): ?IdInterface;
 
-    public static function domainEventCode(): string;
+    public function setDomainEventId(IdInterface $domainEventId): void;
 
-    public function domainEventVersion(): int;
+    public function setRequestId(IdInterface $requestId): void;
+
+    public function setCorrelationId(IdInterface $correlationId): void;
+
+    public function setGeneratorCommandId(IdInterface $generatorCommandId): void;
+
+    public static function getDomainEventCode(): string;
+
+    public function getDomainEventVersion(): int;
 
     /**
      * @return array<mixed, mixed>
