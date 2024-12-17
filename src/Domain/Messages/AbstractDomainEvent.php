@@ -8,13 +8,15 @@ abstract class AbstractDomainEvent implements DomainEventInterface
 {
     private ?IdInterface $domainEventId = null;
     private IdInterface $aggregateId;
+    private string $aggregateCode;
     private ?IdInterface $requestId = null;
     private ?IdInterface $correlationId = null;
     private ?IdInterface $generatorCommandId = null;
 
-    public function __construct(IdInterface $aggregateId)
+    public function __construct(IdInterface $aggregateId, string $aggregateCode)
     {
         $this->aggregateId = $aggregateId;
+        $this->aggregateCode = $aggregateCode;
     }
 
     public function getDomainEventId(): ?IdInterface
@@ -25,6 +27,11 @@ abstract class AbstractDomainEvent implements DomainEventInterface
     public function getAggregateId(): IdInterface
     {
         return $this->aggregateId;
+    }
+
+    public function getAggregateCode(): string
+    {
+        return $this->aggregateCode;
     }
 
     public function getRequestId(): ?IdInterface

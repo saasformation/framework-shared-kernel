@@ -9,6 +9,7 @@ interface DomainEventInterface
     public function getDomainEventId(): ?IdInterface;
 
     public function getAggregateId(): IdInterface;
+    public function getAggregateCode(): string;
 
     public function getRequestId(): ?IdInterface;
 
